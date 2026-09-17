@@ -4,16 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a0f13">
-<title>ROAD TO P1 Partners — V1.0.0</title>
-<link rel="stylesheet" href="style.css?v=100">
+<title>ROAD TO P1 Partners — V1.0.1</title>
+<link rel="stylesheet" href="style.css?v=101">
 </head>
 <body>
 <div class="app">
   <aside class="sidebar">
-    <div class="brand">
-      <img alt="ROAD TO P1" id="officialLogo" src="">
-      <div><div class="product">Partners</div><div class="sub">Prospection • Sponsoring • Partenariats</div></div>
-    </div>
+    <div class="brand"><img alt="ROAD TO P1" id="officialLogo" src=""><div><div class="product">Partners</div><div class="sub">Prospection • Sponsoring • Partenariats</div></div></div>
     <nav class="nav">
       <button class="active" data-view="dashboard"><span class="ico">⌂</span>Tableau de bord</button>
       <button data-view="research"><span class="ico">⌕</span>Recherche</button>
@@ -23,21 +20,11 @@
       <button data-view="partners"><span class="ico">★</span>Partenaires</button>
       <button data-view="reports"><span class="ico">▥</span>Rapports</button>
     </nav>
-    <div class="version">ROAD TO P1 Partners<br>V1.0.0</div>
+    <div class="version">ROAD TO P1 Partners<br>V1.0.1</div>
   </aside>
 
   <main class="main">
-    <div class="topbar">
-      <div>
-        <div class="eyebrow">ROAD TO P1 • PARTNERS</div>
-        <h1 id="pageTitle">Tableau de bord</h1>
-        <p class="subtitle" id="pageSubtitle">Piloter la prospection, les relances, les propositions et les partenariats depuis un seul endroit.</p>
-      </div>
-      <div class="top-actions">
-        <button class="btn ghost" id="demoBtn">Charger une démo</button>
-        <button class="btn primary" id="addProspectBtn">+ Nouveau prospect</button>
-      </div>
-    </div>
+    <div class="topbar"><div><div class="eyebrow">ROAD TO P1 • PARTNERS</div><h1 id="pageTitle">Tableau de bord</h1><p class="subtitle" id="pageSubtitle">Piloter la prospection, les relances, les propositions et les partenariats depuis un seul endroit.</p></div><div class="top-actions"><button class="btn ghost" id="demoBtn">Charger une démo</button><button class="btn primary" id="addProspectBtn">+ Nouveau prospect</button></div></div>
 
     <section class="view active" id="view-dashboard">
       <div class="kpis">
@@ -48,64 +35,25 @@
         <div class="kpi"><div class="label">Potentiel</div><div class="value" id="kpiPotential">0 €</div><div class="hint">opportunités ouvertes</div></div>
         <div class="kpi"><div class="label">Signé</div><div class="value" id="kpiSigned">0 €</div><div class="hint">partenariats conclus</div></div>
       </div>
-
       <div class="grid2">
-        <div class="panel">
-          <div class="panel-head"><h2>Pipeline commercial</h2><span class="meta">Vue synthétique</span></div>
-          <div class="panel-body"><div class="pipeline-mini" id="pipelineMini"></div></div>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><h2>Priorités</h2><span class="meta">Top score</span></div>
-          <div class="panel-body" id="topProspects"></div>
-        </div>
+        <div class="panel"><div class="panel-head"><h2>Pipeline commercial</h2><span class="meta">Vue synthétique</span></div><div class="panel-body"><div class="pipeline-mini" id="pipelineMini"></div></div></div>
+        <div class="panel"><div class="panel-head"><h2>Priorités</h2><span class="meta">Top score</span></div><div class="panel-body" id="topProspects"></div></div>
       </div>
-
-      <div class="panel" style="margin-top:16px">
-        <div class="panel-head"><h2>Relances à traiter</h2><span class="meta" id="followupMeta">0 action</span></div>
-        <div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Entreprise</th><th>Contact</th><th>Étape</th><th>Date</th><th>Montant</th><th></th></tr></thead><tbody id="dashboardFollowups"></tbody></table></div><div class="empty hidden" id="dashboardFollowupsEmpty">Aucune relance urgente. Le tableau est propre.</div></div>
-      </div>
+      <div class="panel" style="margin-top:16px"><div class="panel-head"><h2>Relances à traiter</h2><span class="meta" id="followupMeta">0 action</span></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Entreprise</th><th>Contact</th><th>Étape</th><th>Date</th><th>Montant</th><th></th></tr></thead><tbody id="dashboardFollowups"></tbody></table></div><div class="empty hidden" id="dashboardFollowupsEmpty">Aucune relance urgente. Le tableau est propre.</div></div></div>
     </section>
 
-    <section class="view" id="view-research">
-      <div class="panel">
-        <div class="panel-head"><h2>Préparer une recherche de sponsors</h2><span class="meta">Brief de prospection</span></div>
-        <div class="panel-body research-box">
-          <div class="criteria">
-            <div class="field"><label>Zone géographique</label><input class="input" id="rGeo" placeholder="Ex. Marne, Grand Est, France"></div>
-            <div class="row2"><div class="field"><label>Secteurs</label><input class="input" id="rSectors" placeholder="Automobile, assurance, industrie..."></div><div class="field"><label>Taille / cible</label><input class="input" id="rSize" placeholder="PME, ETI, grands groupes..."></div></div>
-            <div class="field"><label>Affinités recherchées</label><input class="input" id="rAffinity" placeholder="Jeunesse, sport, égalité, innovation, mobilité..."></div>
-            <div class="field"><label>Objectif financier</label><input class="input" id="rBudget" placeholder="Ex. partenariats de 2 000 à 10 000 €"></div>
-            <div class="field"><label>Notes de recherche</label><textarea id="rNotes" placeholder="Contraintes, entreprises à exclure, angles à privilégier..."></textarea></div>
-            <div><button class="btn primary" id="saveResearchBtn">Enregistrer le brief</button></div>
-          </div>
-          <div>
-            <div class="info-card"><strong>Principe V1.0.0</strong><br>Partners conserve ici le brief de recherche et transforme ensuite chaque entreprise repérée en prospect qualifié. La recherche web automatisée et l'enrichissement des contacts seront ajoutés dans une version suivante.</div>
-            <div class="info-card" style="margin-top:10px"><strong>Brief enregistré</strong><div id="researchSummary" style="margin-top:8px;color:#9faab2">Aucun brief pour le moment.</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="view" id="view-research"></section>
 
     <section class="view" id="view-prospects">
-      <div class="toolbar">
-        <input class="input wide" id="pSearch" type="search" placeholder="Rechercher entreprise, contact, secteur, ville...">
-        <select id="pStatus"><option value="all">Toutes les étapes</option></select>
-        <select id="pPriority"><option value="all">Toutes priorités</option><option>A</option><option>B</option><option>C</option></select>
-        <select id="pSector"><option value="all">Tous secteurs</option></select>
-        <button class="btn" id="resetFilters">Réinitialiser</button>
-      </div>
+      <div class="toolbar"><input class="input wide" id="pSearch" type="search" placeholder="Rechercher entreprise, contact, secteur, ville..."><select id="pStatus"><option value="all">Toutes les étapes</option></select><select id="pPriority"><option value="all">Toutes priorités</option><option>A</option><option>B</option><option>C</option></select><select id="pSector"><option value="all">Tous secteurs</option></select><button class="btn" id="resetFilters">Réinitialiser</button></div>
       <div class="panel"><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Entreprise</th><th>Secteur</th><th>Score</th><th>Priorité</th><th>Étape</th><th>Contact</th><th>Potentiel</th><th>Prochaine action</th><th></th></tr></thead><tbody id="prospectBody"></tbody></table></div><div class="empty hidden" id="prospectEmpty">Aucun prospect ne correspond à ces filtres.</div></div></div>
     </section>
 
     <section class="view" id="view-pipeline"><div class="kanban" id="kanban"></div></section>
 
-    <section class="view" id="view-followups">
-      <div class="panel"><div class="panel-head"><h2>Relances et prochaines actions</h2><span class="meta">Triées par date</span></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Date</th><th>Entreprise</th><th>Contact</th><th>Action</th><th>Étape</th><th>Priorité</th><th></th></tr></thead><tbody id="followupBody"></tbody></table></div><div class="empty hidden" id="followupEmpty">Aucune relance planifiée.</div></div></div>
-    </section>
+    <section class="view" id="view-followups"><div class="panel"><div class="panel-head"><h2>Relances et prochaines actions</h2><span class="meta">Triées par date</span></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Date</th><th>Entreprise</th><th>Contact</th><th>Action</th><th>Étape</th><th>Priorité</th><th></th></tr></thead><tbody id="followupBody"></tbody></table></div><div class="empty hidden" id="followupEmpty">Aucune relance planifiée.</div></div></div></section>
 
-    <section class="view" id="view-partners">
-      <div class="panel"><div class="panel-head"><h2>Partenaires signés</h2><span class="meta" id="partnersMeta">0 partenaire</span></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Entreprise</th><th>Contact</th><th>Montant signé</th><th>Début</th><th>Renouvellement</th><th>Notes</th><th></th></tr></thead><tbody id="partnersBody"></tbody></table></div><div class="empty hidden" id="partnersEmpty">Aucun partenaire signé pour le moment.</div></div></div>
-    </section>
+    <section class="view" id="view-partners"><div class="panel"><div class="panel-head"><h2>Partenaires signés</h2><span class="meta" id="partnersMeta">0 partenaire</span></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Entreprise</th><th>Contact</th><th>Montant signé</th><th>Début</th><th>Renouvellement</th><th>Notes</th><th></th></tr></thead><tbody id="partnersBody"></tbody></table></div><div class="empty hidden" id="partnersEmpty">Aucun partenaire signé pour le moment.</div></div></div></section>
 
     <section class="view" id="view-reports">
       <div class="kpis">
@@ -119,69 +67,53 @@
       <div class="panel"><div class="panel-head"><h2>Répartition du pipeline</h2><span class="meta">Montants potentiels</span></div><div class="panel-body" id="reportStages"></div></div>
     </section>
 
-    <div class="footer">ROAD TO P1 Partners • V1.0.0 • Données enregistrées localement dans ce navigateur</div>
+    <div class="footer">ROAD TO P1 Partners • V1.0.1 • Données enregistrées localement dans ce navigateur</div>
   </main>
 </div>
 
-<div class="modal" id="prospectModal">
-  <div class="modal-card">
-    <div class="modal-head"><h2 id="modalTitle">Nouveau prospect</h2><button class="close" id="closeModal">×</button></div>
-    <div class="modal-body">
-      <div class="form-grid">
-        <div class="section-title">Entreprise</div>
-        <div class="field span2"><label>Entreprise *</label><input class="input" id="fCompany" placeholder="Nom de l'entreprise"></div>
-        <div class="field"><label>Secteur</label><input class="input" id="fSector" placeholder="Automobile, banque..."></div>
-        <div class="field"><label>Ville / zone</label><input class="input" id="fLocation" placeholder="Reims, Grand Est..."></div>
-        <div class="field span2"><label>Site internet</label><input class="input" id="fWebsite" placeholder="https://..."></div>
-        <div class="field"><label>Étape</label><select id="fStatus"></select></div>
-        <div class="field"><label>Priorité</label><select id="fPriority"><option>A</option><option selected>B</option><option>C</option></select></div>
-
-        <div class="section-title">Contact</div>
-        <div class="field span2"><label>Nom du contact</label><input class="input" id="fContact" placeholder="Prénom NOM"></div>
-        <div class="field span2"><label>Fonction</label><input class="input" id="fRole" placeholder="Marketing, RSE, direction..."></div>
-        <div class="field span2"><label>Email</label><input class="input" id="fEmail" type="email"></div>
-        <div class="field"><label>Téléphone</label><input class="input" id="fPhone"></div>
-        <div class="field"><label>LinkedIn</label><input class="input" id="fLinkedin" placeholder="Profil / URL"></div>
-
-        <div class="section-title">Opportunité</div>
-        <div class="field"><label>Montant potentiel (€)</label><input class="input" id="fPotential" type="number" min="0" step="100"></div>
-        <div class="field"><label>Montant demandé (€)</label><input class="input" id="fAsk" type="number" min="0" step="100"></div>
-        <div class="field"><label>Montant signé (€)</label><input class="input" id="fSigned" type="number" min="0" step="100"></div>
-        <div class="field"><label>Dernier contact</label><input class="input" id="fLastContact" type="date"></div>
-        <div class="field"><label>Prochaine action</label><input class="input" id="fNextDate" type="date"></div>
-        <div class="field span2"><label>Type de prochaine action</label><input class="input" id="fNextAction" placeholder="Relance email, appel, rendez-vous..."></div>
-        <div class="field"><label>Début partenariat</label><input class="input" id="fStartDate" type="date"></div>
-        <div class="field"><label>Renouvellement</label><input class="input" id="fRenewal" type="date"></div>
-        <div class="field span4"><label>Affinités / mots-clés</label><input class="input" id="fTags" placeholder="automobile, jeunesse, égalité, innovation, RSE, local..."></div>
-
-        <div class="section-title">Score ROAD TO P1</div>
-        <div class="scoring">
-          <div class="score-item"><div class="line"><span>Adéquation au projet</span><b id="svFit">10</b>/20</div><input id="sFit" type="range" min="0" max="20" value="10"></div>
-          <div class="score-item"><div class="line"><span>Capacité financière</span><b id="svBudget">10</b>/20</div><input id="sBudget" type="range" min="0" max="20" value="10"></div>
-          <div class="score-item"><div class="line"><span>Accès au décideur</span><b id="svContact">8</b>/15</div><input id="sContact" type="range" min="0" max="15" value="8"></div>
-          <div class="score-item"><div class="line"><span>Ancrage territoire</span><b id="svLocal">8</b>/15</div><input id="sLocal" type="range" min="0" max="15" value="8"></div>
-          <div class="score-item"><div class="line"><span>Sport / mobilité</span><b id="svSport">8</b>/15</div><input id="sSport" type="range" min="0" max="15" value="8"></div>
-          <div class="score-item"><div class="line"><span>Jeunesse / mixité / RSE</span><b id="svRse">8</b>/15</div><input id="sRse" type="range" min="0" max="15" value="8"></div>
-        </div>
-        <div class="score-total"><span>Score total</span><span class="score-big" id="scoreTotal">52</span><span>/100</span></div>
-
-        <div class="section-title">Stratégie</div>
-        <div class="field span4"><label>Pourquoi cette entreprise ? / angle d'approche</label><textarea id="fAngle" placeholder="Pourquoi ce prospect peut être intéressé par ROAD TO P1 ?"></textarea></div>
-        <div class="field span4"><label>Notes</label><textarea id="fNotes" placeholder="Historique, informations utiles, objections, éléments à envoyer..."></textarea></div>
-        <div class="field span4 hidden" id="approachWrap"><div class="approach" id="approachContent"></div></div>
-      </div>
+<div class="modal" id="prospectModal"><div class="modal-card">
+  <div class="modal-head"><h2 id="modalTitle">Nouveau prospect</h2><button class="close" id="closeModal">×</button></div>
+  <div class="modal-body"><div class="form-grid">
+    <div class="section-title">Entreprise</div>
+    <div class="field span2"><label>Entreprise *</label><input class="input" id="fCompany" placeholder="Nom de l'entreprise"></div>
+    <div class="field"><label>Secteur</label><input class="input" id="fSector" placeholder="Automobile, banque..."></div>
+    <div class="field"><label>Ville / zone</label><input class="input" id="fLocation" placeholder="Reims, Grand Est..."></div>
+    <div class="field span2"><label>Site internet</label><input class="input" id="fWebsite" placeholder="https://..."></div>
+    <div class="field"><label>Étape</label><select id="fStatus"></select></div>
+    <div class="field"><label>Priorité</label><select id="fPriority"><option>A</option><option selected>B</option><option>C</option></select></div>
+    <div class="section-title">Contact</div>
+    <div class="field span2"><label>Nom du contact</label><input class="input" id="fContact" placeholder="Prénom NOM"></div>
+    <div class="field span2"><label>Fonction</label><input class="input" id="fRole" placeholder="Marketing, RSE, direction..."></div>
+    <div class="field span2"><label>Email</label><input class="input" id="fEmail" type="email"></div>
+    <div class="field"><label>Téléphone</label><input class="input" id="fPhone"></div>
+    <div class="field"><label>LinkedIn</label><input class="input" id="fLinkedin" placeholder="Profil / URL"></div>
+    <div class="section-title">Opportunité</div>
+    <div class="field"><label>Montant potentiel (€)</label><input class="input" id="fPotential" type="number" min="0" step="100"></div>
+    <div class="field"><label>Montant demandé (€)</label><input class="input" id="fAsk" type="number" min="0" step="100"></div>
+    <div class="field"><label>Montant signé (€)</label><input class="input" id="fSigned" type="number" min="0" step="100"></div>
+    <div class="field"><label>Dernier contact</label><input class="input" id="fLastContact" type="date"></div>
+    <div class="field"><label>Prochaine action</label><input class="input" id="fNextDate" type="date"></div>
+    <div class="field span2"><label>Type de prochaine action</label><input class="input" id="fNextAction" placeholder="Relance email, appel, rendez-vous..."></div>
+    <div class="field"><label>Début partenariat</label><input class="input" id="fStartDate" type="date"></div>
+    <div class="field"><label>Renouvellement</label><input class="input" id="fRenewal" type="date"></div>
+    <div class="field span4"><label>Affinités / mots-clés</label><input class="input" id="fTags" placeholder="automobile, jeunesse, égalité, innovation, RSE, local..."></div>
+    <div class="section-title">Score ROAD TO P1</div>
+    <div class="scoring">
+      <div class="score-item"><div class="line"><span>Adéquation au projet</span><b id="svFit">10</b>/20</div><input id="sFit" type="range" min="0" max="20" value="10"></div>
+      <div class="score-item"><div class="line"><span>Capacité financière</span><b id="svBudget">10</b>/20</div><input id="sBudget" type="range" min="0" max="20" value="10"></div>
+      <div class="score-item"><div class="line"><span>Accès au décideur</span><b id="svContact">8</b>/15</div><input id="sContact" type="range" min="0" max="15" value="8"></div>
+      <div class="score-item"><div class="line"><span>Ancrage territoire</span><b id="svLocal">8</b>/15</div><input id="sLocal" type="range" min="0" max="15" value="8"></div>
+      <div class="score-item"><div class="line"><span>Sport / mobilité</span><b id="svSport">8</b>/15</div><input id="sSport" type="range" min="0" max="15" value="8"></div>
+      <div class="score-item"><div class="line"><span>Jeunesse / mixité / RSE</span><b id="svRse">8</b>/15</div><input id="sRse" type="range" min="0" max="15" value="8"></div>
     </div>
-    <div class="modal-actions">
-      <div><button class="btn danger hidden" id="deleteProspectBtn">Supprimer</button></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="prepareApproachBtn">Préparer l'approche</button><button class="btn primary" id="saveProspectBtn">Enregistrer</button></div>
-    </div>
-  </div>
-</div>
+    <div class="score-total"><span>Score total</span><span class="score-big" id="scoreTotal">52</span><span>/100</span></div>
+    <div class="section-title">Stratégie</div>
+    <div class="field span4"><label>Pourquoi cette entreprise ? / angle d'approche</label><textarea id="fAngle" placeholder="Pourquoi ce prospect peut être intéressé par ROAD TO P1 ?"></textarea></div>
+    <div class="field span4"><label>Notes</label><textarea id="fNotes" placeholder="Historique, informations utiles, objections, éléments à envoyer..."></textarea></div>
+    <div class="field span4 hidden" id="approachWrap"><div class="approach" id="approachContent"></div></div>
+  </div></div>
+  <div class="modal-actions"><div><button class="btn danger hidden" id="deleteProspectBtn">Supprimer</button></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="prepareApproachBtn">Préparer l'approche</button><button class="btn primary" id="saveProspectBtn">Enregistrer</button></div></div>
+</div></div>
 <div class="toast" id="toast"></div>
-
-
-
-
-
-<script src="app.js?v=100"></script>
+<script src="app.js?v=101"></script>
 </body></html>
