@@ -34,7 +34,26 @@ function allTracked(){
  return ids
 }
 function uniqueMailed(){const st=readResearch();return Object.values(st.records||{}).filter(r=>r.mailAt).length}
-function sendsRecorded(){const st=readResearch();return Object.values(st.records||{}).reduce((n,r)=>n+(r.mailAt?1:0)+(r.relanceAt?1:0),0)}
+function sendsRecorded(){const st=readResearch();return Object.values(st.records||{}).reduce((n,r)=>n+(Array.isArray(r.mailEvents)?r.mailEvents.length:((r.mailAt?1:0)+(r.relanceAt?1:0))),0)}
+function migrateMailEvents(){
+ const st=readResearch();let changed=false;
+ for(const r of Object.values(st.records||{})){
+  if(!Array.isArray(r.mailEvents)){
+   const a=[];if(r.mailAt)a.push({at:r.mailAt,type:'initial'});if(r.relanceAt&&r.relanceAt!==r.mailAt)a.push({at:r.relanceAt,type:'relance'});
+   r.mailEvents=a;changed=true
+  }
+ }
+ if(changed)writeResearch(st)
+}
+function logConfirmedMail(){
+ const {id}=currentCompany();if(!id)return;
+ setTimeout(()=>{
+  const st=readResearch(),r=st.records?.[id];if(!r)return;
+  r.mailEvents=Array.isArray(r.mailEvents)?r.mailEvents:[];
+  const at=r.relanceAt||r.mailAt;if(!at)return;
+  if(!r.mailEvents.some(e=>e.at===at)){r.mailEvents.push({at,type:r.relanceAt===at?'relance':'initial'});writeResearch(st);dashboard()}
+ },80)
+}
 function replies(){const st=readResearch();return Object.values(st.records||{}).filter(r=>r.responseAt).length}
 function stopped(){const st=readResearch();return Object.values(st.records||{}).filter(r=>r.abandonedAt).length}
 function dueResearch(){const st=readResearch();return Object.values(st.records||{}).filter(r=>!r.abandonedAt&&!r.responseAt&&r.mailAt&&r.followDate&&r.followDate<=today()).length}
@@ -80,9 +99,10 @@ function dashboard(){
  const k=document.querySelector('#view-dashboard .kpis');if(!k)return;
  document.getElementById('demoBtn')?.remove();
  const real=readProspects().items?.filter(x=>!isDemo(x))||[],research=readResearch(),tracked=allTracked(),ab=stopped();
- const activeResearch=[...tracked].filter(id=>!research.records?.[id]?.abandonedAt).length;
- const activeProspects=real.filter(x=>x.status!=='Signé').length;
- const prospects=Math.max(activeResearch,activeProspects);
+ const activeNames=new Set();
+ for(const id of tracked)if(!research.records?.[id]?.abandonedAt)activeNames.add(norm(cname(id)));
+ for(const x of real)if(x.status!=='Signé')activeNames.add(norm(x.company));
+ const prospects=activeNames.size;
  const kp=document.getElementById('kpiProspects');if(kp){kp.textContent=String(prospects);kp.parentElement.querySelector('.label').textContent='Prospects actifs';kp.parentElement.querySelector('.hint').textContent='entreprises réellement suivies'}
  const kpa=document.getElementById('kpiA');if(kpa)kpa.textContent=String(real.filter(x=>x.priority==='A'&&x.status!=='Signé').length);
  const kr=document.getElementById('kpiFollowups');if(kr)kr.textContent=String(real.filter(x=>x.nextDate&&x.nextDate<=today()&&x.status!=='Signé').length+dueResearch());
@@ -139,7 +159,8 @@ function reactivate(id){
 }
 function refresh(){style();stamp();dashboard();decorateRows();injectAbandon()}
 async function boot(){
- if(cleanDemo())return;style();stamp();modal();await loadCandidates();refresh();
+ if(cleanDemo())return;migrateMailEvents();style();stamp();modal();await loadCandidates();refresh();
+ document.addEventListener('click',e=>{if(e.target?.id==='r2Sent')logConfirmedMail()},true);
  const root=document.querySelector('.main')||document.body;let lock=false;
  new MutationObserver(()=>{if(lock)return;lock=true;requestAnimationFrame(()=>{lock=false;refresh()})}).observe(root,{childList:true,subtree:true});
  document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>setTimeout(refresh,40)));
