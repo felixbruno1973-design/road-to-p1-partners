@@ -88,9 +88,9 @@ function dashboard(){
  const kr=document.getElementById('kpiFollowups');if(kr)kr.textContent=String(real.filter(x=>x.nextDate&&x.nextDate<=today()&&x.status!=='Signé').length+dueResearch());
  const km=document.getElementById('kpiPotential');if(km)km.textContent=new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(real.filter(x=>x.status!=='Signé').reduce((a,x)=>a+(+x.potential||0),0));
  const ks=document.getElementById('kpiSigned');if(ks)ks.textContent=new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(real.filter(x=>x.status==='Signé').reduce((a,x)=>a+(+x.signed||0),0));
- const defs=[['Mails envoyés','r106Mails','envois enregistrés : '+sendsRecorded()],['Réponses reçues','r106Replies','entreprises ayant répondu'],['Refus / abandons','r106Stopped','dossiers sortis de la prospection']];
+ const defs=[['Mails envoyés','r106Mails','entreprises contactées : '+uniqueMailed()],['Réponses reçues','r106Replies','entreprises ayant répondu'],['Refus / abandons','r106Stopped','dossiers sortis de la prospection']];
  for(const [l,id,h] of defs)if(!document.getElementById(id))k.appendChild(kpi(l,id,h));
- document.getElementById('r106Mails').textContent=String(uniqueMailed());
+ document.getElementById('r106Mails').textContent=String(sendsRecorded());
  document.getElementById('r106Replies').textContent=String(replies());
  document.getElementById('r106Stopped').textContent=String(ab);
  const meta=document.querySelector('#view-dashboard .top-real-note');
