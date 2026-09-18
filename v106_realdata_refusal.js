@@ -152,10 +152,10 @@ function saveStop(){
  if(!stopId)return;const st=readResearch();st.records=st.records||{};const r=st.records[stopId]||(st.records[stopId]={});
  const type=document.getElementById('r106Type').value,reason=document.getElementById('r106Reason').value.trim();
  r.abandonedAt=new Date().toISOString();r.abandonType=type;r.abandonReason=reason||({refusal:'Refus explicite de l’entreprise',noresponse:'Absence de réponse après relances',out:'Entreprise finalement hors cible',other:'Prospection arrêtée'}[type]);
- r.followDate='';r.followNote='';writeResearch(st);closeStop();toast(type==='refusal'?'Entreprise classée en refus.':'Prospection abandonnée.');refresh()
+ r.followDate='';r.followNote='';delete r.abandonClearedAt;writeResearch(st);document.dispatchEvent(new CustomEvent('rtp:research-refresh'));closeStop();toast(type==='refusal'?'Entreprise classée en refus.':'Prospection abandonnée.');refresh()
 }
 function reactivate(id){
- const st=readResearch(),r=st.records?.[id];if(!r)return;delete r.abandonedAt;delete r.abandonType;delete r.abandonReason;writeResearch(st);toast('Entreprise réactivée dans la prospection.');refresh()
+ const st=readResearch(),r=st.records?.[id];if(!r)return;delete r.abandonedAt;delete r.abandonType;delete r.abandonReason;r.abandonClearedAt=new Date().toISOString();writeResearch(st);document.dispatchEvent(new CustomEvent('rtp:research-refresh'));toast('Entreprise réactivée dans la prospection.');refresh()
 }
 function refresh(){style();stamp();dashboard();decorateRows();injectAbandon()}
 async function boot(){
