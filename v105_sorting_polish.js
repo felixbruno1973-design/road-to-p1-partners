@@ -33,7 +33,7 @@ function metrics(name,match){
 }
 function style(){
  if(document.getElementById('r105style'))return;
- const s=document.createElement('style');s.id='r105style';s.textContent='
+ const s=document.createElement('style');s.id='r105style';s.textContent=`
 .r103flow{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
 .r103contact{padding:14px!important;border-radius:12px!important}
 .r103contact h6{font-size:14px!important;line-height:1.28!important;margin:10px 0 7px!important}
@@ -57,7 +57,7 @@ function style(){
 .r105chip b{color:#eef2f4;font-size:10px}
 .r105chip.action{border-color:#694047;background:#211418;color:#ffb1b5}
 @media(max-width:760px){.r103flow{grid-template-columns:1fr!important}.r103contact h6,.r103name{font-size:14px!important}.r104score span{font-size:9px!important}}
-';document.head.appendChild(s)
+`;document.head.appendChild(s)
 }
 function toast(msg){const e=document.getElementById('toast');if(!e)return;e.textContent=msg;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1900)}
 async function loadMeta(){
