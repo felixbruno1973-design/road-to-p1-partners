@@ -87,10 +87,10 @@ function style(){
 `;document.head.appendChild(s)
 }
 function stamp(){
- window.RTP_VERSION_LOCK='1.0.6';document.title='ROAD TO P1 Partners — V1.0.6';
- const v=document.querySelector('.version');if(v)v.innerHTML='ROAD TO P1 Partners<br>V1.0.6';
- const f=document.querySelector('.footer');if(f)f.textContent='ROAD TO P1 Partners • V1.0.6 • Données réelles enregistrées localement dans ce navigateur';
- const m=document.querySelector('#view-research .panel-head .meta');if(m)m.textContent='V1.0.6'
+ const ver=window.RTP_VERSION_LOCK||'1.0.6';document.title='ROAD TO P1 Partners — V'+ver;
+ const v=document.querySelector('.version');if(v)v.innerHTML='ROAD TO P1 Partners<br>V'+ver;
+ const f=document.querySelector('.footer');if(f)f.textContent='ROAD TO P1 Partners • V'+ver+' • Données réelles enregistrées localement dans ce navigateur';
+ const m=document.querySelector('#view-research .panel-head .meta');if(m)m.textContent='V'+ver
 }
 function kpi(label,id,hint){
  const d=document.createElement('div');d.className='kpi r106kpi';d.innerHTML='<div class="label">'+label+'</div><div class="value" id="'+id+'">0</div><div class="hint">'+hint+'</div>';return d
