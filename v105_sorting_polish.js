@@ -109,11 +109,11 @@ function fixMailModal(){
  if(h&&!h.dataset.v105){h.dataset.v105='1';h.textContent='Modifiez au clavier ou par dictée vocale, puis cliquez sur « Enregistrer le nouveau mail ». Le texte remplacera la proposition actuelle.'}
 }
 function stamp(){
- window.RTP_VERSION_LOCK='1.0.5';
- document.title='ROAD TO P1 Partners — V1.0.5';
- const v=document.querySelector('.version');if(v)v.innerHTML='ROAD TO P1 Partners<br>V1.0.5';
- const f=document.querySelector('.footer');if(f)f.textContent='ROAD TO P1 Partners • V1.0.5 • Données enregistrées localement dans ce navigateur';
- const m=document.querySelector('#view-research .panel-head .meta');if(m)m.textContent='V1.0.5';
+ const ver=window.RTP_VERSION_LOCK||'1.0.5';
+ document.title='ROAD TO P1 Partners — V'+ver;
+ const v=document.querySelector('.version');if(v)v.innerHTML='ROAD TO P1 Partners<br>V'+ver;
+ const f=document.querySelector('.footer');if(f)f.textContent='ROAD TO P1 Partners • V'+ver+' • Données enregistrées localement dans ce navigateur';
+ const m=document.querySelector('#view-research .panel-head .meta');if(m)m.textContent='V'+ver;
 }
 let pending=false;
 function refresh(){
