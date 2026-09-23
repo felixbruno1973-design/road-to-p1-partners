@@ -1,5 +1,5 @@
 (()=>{'use strict';
-window.RTP_VERSION_LOCK='1.0.7';
+window.RTP_VERSION_LOCK='1.0.8';
 const RKEY='roadToP1PartnersResearchV102',PKEY='roadToP1PartnersV100',AKEY='roadToP1PartnersAlertsV107',SEEN='roadToP1PartnersAlertedV107';
 let CAND=[];
 const norm=v=>String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
@@ -94,10 +94,10 @@ function checkAlerts(list=collect()){
  if(changed)localStorage.setItem(SEEN,JSON.stringify(seen))
 }
 function stamp(){
- window.RTP_VERSION_LOCK='1.0.7';document.title='ROAD TO P1 Partners — V1.0.7';
- const v=document.querySelector('.version');if(v)v.innerHTML='ROAD TO P1 Partners<br>V1.0.7';
- const f=document.querySelector('.footer');if(f)f.textContent='ROAD TO P1 Partners • V1.0.7 • Liste cumulative et relances consolidées';
- const m=document.querySelector('#view-research .panel-head .meta');if(m)m.textContent='V1.0.7'
+ window.RTP_VERSION_LOCK='1.0.8';document.title='ROAD TO P1 Partners — V1.0.8';
+ const v=document.querySelector('.version');if(v)v.innerHTML='ROAD TO P1 Partners<br>V1.0.8';
+ const f=document.querySelector('.footer');if(f)f.textContent='ROAD TO P1 Partners • V1.0.8 • Liste cumulative et relances consolidées';
+ const m=document.querySelector('#view-research .panel-head .meta');if(m)m.textContent='V1.0.8'
 }
 async function boot(){
  style();stamp();await loadC();render();
