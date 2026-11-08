@@ -10,6 +10,7 @@ function toast(msg){
  setTimeout(()=>e.classList.remove('show'),2600);
 }
 function stamp(){
+ if(window.RTP_VERSION_LOCK==='1.0.9')return;
  window.RTP_VERSION_LOCK=VERSION;
  document.title='ROAD TO P1 Partners — V'+VERSION;
  const v=document.querySelector('.version');if(v)v.innerHTML='ROAD TO P1 Partners<br>V'+VERSION;
